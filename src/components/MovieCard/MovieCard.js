@@ -1,19 +1,45 @@
-import React  from 'react';
+import React, { Component }  from 'react';
 import './MovieCard.css';
+import FlipCard from '../../common/FlipCard/FlipCard';
 
-// 1.	 “id” (Auto generated, please don’t ask the user to fill it out)
-// 2.	 "Title": "Dog Day Afternoon",
-// 3.	 "Year": "1975",
-// 4.	 "Runtime": "125 min",
-// 5.	 "Genre": "Biography, Crime, Drama",
-// 6.	 "Director": "Sidney Lumet",
+class MovieCard extends Component {
+    constructor(props) {
+        super(props)
+    }
 
-
-const MovieCard = props => (
-    <div className = "movie-card">
-        <img src = { props.poster } alt = '{props.title}'/>
-    </div>
-
-    )
+    render() {
+        return (
+            <div className = "movie-card">
+                    <img className = "front" src = { this.props.Poster } alt = '{this.props.title}'/>
+                    <div className='back'>
+                        <p> Title: { this.props.Title } </p>
+                        <p> Year: { this.props.Year } </p>
+                        <p> Genre: { this.props.Genre } </p>
+                        <p> Director: { this.props.Director } </p>
+                        <p> Runtime: { this.props.Runtime } </p>
+                        <button onClick = { () => this.props.handleClick(this.props.imdbID)} > EDIT</button>
+                    </div>
+                </div>
+        
+            )
+    }
+} 
     
 export default MovieCard;
+// const MovieCard = this.props => (
+
+//     <div className = "movie-card">
+//             <img className = "front" src = { this.props.Poster } alt = '{this.props.title}'/>
+//             <div className='back'>
+//                 <p> Title: { this.props.Title } </p>
+//                 <p> Year: { this.props.Year } </p>
+//                 <p> Genre: { this.props.Genre } </p>
+//                 <p> Director: { this.props.Director } </p>
+//                 <p> Runtime: { this.props.Runtime } </p>
+//                 <button onClick = { this.props.handleClick} > EDIT</button>
+//             </div>
+//         </div>
+
+//     )
+    
+// export default MovieCard;

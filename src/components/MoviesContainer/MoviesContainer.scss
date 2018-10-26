@@ -1,0 +1,14 @@
+.movies-container {
+    position: relative;
+    top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0px 25px;
+}
+.add-btn {
+    position: fixed;
+    top: 95vh;
+    left: 30px;
+    z-index: 500;
+}

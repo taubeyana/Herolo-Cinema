@@ -1,5 +1,6 @@
 import axios from 'axios';
 export const ADD_MOVIE = "ADD_MOVIE";
+export const GET_MOVIE = "GET_MOVIE";
 export const EDIT_MOVIE = "EDIT_MOVIE";
 export const DELETE_MOVIE = "DELETE_MOVIE";
 
@@ -16,6 +17,12 @@ export const addMovie = (payload) => ({
         imdbID: payload.imdbID
     }
 })
+
+export const getMovie = (payload) => ({
+    type: GET_MOVIE,
+    payload
+})
+
 
 export const editMovie = (payload) => ({
     type: EDIT_MOVIE,
@@ -56,5 +63,15 @@ export const fetchMoviesList = (title) => {
             .then(data => dispatch(addMovie(data.data)))
             .catch(err => console.log(err))
         });
+    }
+}
+
+export const fetchMovie = (title) => {
+    return dispatch => {
+        // moviesInitialList.forEach(title => {
+            axios.get(`http://www.omdbapi.com/?t=${title}&apikey=33a73e97`)
+            .then(data => dispatch(getMovie(data.data)))
+            .catch(err => console.log(err))
+        // });
     }
 }

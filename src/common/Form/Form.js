@@ -1,4 +1,6 @@
-import React, { Component }  from 'react';
+import React, { Component, Fragment }  from 'react';
+import { connect } from 'react-redux';
+import { fetchMovie, addMovie } from '../../store/actions'
 import './Form.css';
 import Input from '../Input/Input';
 
@@ -13,16 +15,47 @@ class Form extends Component {
     }
     onFormSubmit = (e) => {
         e.preventDefault()
-        let editedMovie = {
-            Title: this.title.current.value,
-            Year: this.year.current.value,
-            Genre: this.genre.current.value,
-            Runtime: this.runtime.current.value,
-            Director: this.director.current.value,
-            imdbID: this.props.movie.imdbID,
-            Poster: this.props.movie.Poster
+        if (this.props.formType === 'add') {
+            this.props.dispatch(addMovie(this.props.movieInfo))
+            this.props.onFormCancel()
+        } else {
+            let movie = {
+                Title: this.title.current.value,
+                Year: this.year.current.value,
+                Genre: this.genre.current.value,
+                Runtime: this.runtime.current.value,
+                Director: this.director.current.value,
+                imdbID: this.props.movie.imdbID,
+                Poster: this.props.movie.Poster
+            }
+            this.props.handleChange(movie)
         }
-        this.props.handleChange(editedMovie)
+    }
+    check = (e) => {
+        e.preventDefault()
+        this.props.dispatch(fetchMovie(this.title.current.value))
+    }
+    renderEditForm = () => {
+        return (
+        <Fragment>
+            <Input label = "Title"  defaultValue = { this.props.movie.Title } inputRef = { this.title }  />
+            <Input label = "Year" defaultValue = { this.props.movie.Year }  inputRef = { this.year }/>
+            <Input label = "Genre" defaultValue = { this.props.movie.Genre } inputRef = { this.genre }/>
+            <Input label = "Runtime" defaultValue = { this.props.movie.Runtime } inputRef = { this.runtime }/>
+            <Input label = "Director" defaultValue = { this.props.movie.Director } inputRef = { this.director }/>
+            <Input label = "ID" defaultValue = { this.props.movie.imdbID } disabled/>
+        </Fragment>)
+    }
+    renderAddForm = () => {
+        return (
+        <Fragment>
+            <Input handleChange= {(e) => this.check(e) } label = "Title" defaultValue = { this.props.movieInfo.Title } inputRef = { this.title } />
+            <Input label = "Year" defaultValue = { this.props.movieInfo.Year } disabled  inputRef = { this.year }/>
+            <Input label = "Genre" defaultValue = { this.props.movieInfo.Genre } disabled  inputRef = { this.genre }/>
+            <Input label = "Runtime" defaultValue = { this.props.movieInfo.Runtime } disabled  inputRef = { this.runtime }/>
+            <Input label = "Director" defaultValue = { this.props.movieInfo.Director }  disabled  inputRef = { this.director }/>
+            <Input label = "ID"  defaultValue = { this.props.movieInfo.imdbID } disabled/>
+        </Fragment>)
     }
     render() {
         let formHeader;
@@ -39,18 +72,16 @@ class Form extends Component {
         return (
             <form onSubmit = { e => this.onFormSubmit(e) }>
                 <h1> { formHeader } </h1>
-                <Input handleChange = { this.onInputChange } label = "Title"  defaultValue = { this.props.movie.Title } inputRef = { this.title }  />
-                <Input handleChange = { this.onInputChange } label = "Year" defaultValue = { this.props.movie.Year }  inputRef = { this.year }/>
-                <Input handleChange = { this.onInputChange } label = "Genre" defaultValue = { this.props.movie.Genre } inputRef = { this.genre }/>
-                <Input handleChange = { this.onInputChange } label = "Runtime" defaultValue = { this.props.movie.Runtime } inputRef = { this.runtime }/>
-                <Input handleChange = { this.onInputChange } label = "Director" defaultValue = { this.props.movie.Director } inputRef = { this.director }/>
-                <Input label = "ID" defaultValue = { this.props.movie.imdbID } disabled/>
+                { this.props.formType === "edit" ? this.renderEditForm() : null } 
+                { this.props.formType === "add" ? this.renderAddForm() : null } 
                 <button type = "submit">save</button>
+                <button onClick = { e => this.check(e) }> check </button> 
                 <button onClick = { this.props.onFormCancel }>cancel</button>
             </form>
         )
-        
     } 
 }
- 
-export default Form;
+const mapStateToProps = state => ({
+    movieInfo: state.movieInfo,
+})
+export default connect(mapStateToProps)(Form);

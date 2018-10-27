@@ -69,13 +69,14 @@ class MoviesContainer extends Component {
                     label = 'add' 
                     handleClick = { this.onAddMovie }>
                 </Button>
-                <Modal type = 'modal'
+                <Modal 
+                // type = 'modal'
                     modalOpen = { this.state.modalOpen } 
                     modalClose = { this.toggleModal }>
                     <Form onFormCancel = { this.toggleModal } handleChange = {this.onFormSubmit} formType = { this.state.formType } movie = { this.state.selectedMovie }/>
                 </Modal>
                 <Modal 
-                    type='popup'
+                    // type='popup'
                     modalOpen = { this.state.popupOpen }
                     modalClose = { this.togglePopup }>
                     <button onClick = { (e) => this.confirmDeletion(e) }> OK </button>    

@@ -17,7 +17,8 @@ class MovieCard extends Component {
                         <p> Genre: { this.props.Genre } </p>
                         <p> Director: { this.props.Director } </p>
                         <p> Runtime: { this.props.Runtime } </p>
-                        <button onClick = { () => this.props.handleClick(this.props.imdbID)} > EDIT</button>
+                        <button onClick = { () => this.props.handleClickOnEdit(this.props.imdbID)} > EDIT </button>
+                        <button onClick = { () => this.props.onDeleteMovie(this.props.imdbID)} > DELETE </button>
                     </div>
                 </div>
         

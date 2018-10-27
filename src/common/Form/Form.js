@@ -45,7 +45,7 @@ class Form extends Component {
                 <Input handleChange = { this.onInputChange } label = "Runtime" defaultValue = { this.props.movie.Runtime } inputRef = { this.runtime }/>
                 <Input handleChange = { this.onInputChange } label = "Director" defaultValue = { this.props.movie.Director } inputRef = { this.director }/>
                 <Input label = "ID" defaultValue = { this.props.movie.imdbID } disabled/>
-                <button type = "submit">edit</button>
+                <button type = "submit">save</button>
                 <button onClick = { this.props.onFormCancel }>cancel</button>
             </form>
         )

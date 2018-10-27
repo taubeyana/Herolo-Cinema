@@ -1,9 +1,9 @@
 import React, { Component }  from 'react';
 import { connect } from 'react-redux';
 import { fetchMovie } from '../../store/actions';
-import './Form.css';
 import Input from '../../common/Input/Input';
 import Modal from '../../common/Modal/Modal';
+import { titleFormat } from '../../utils/validations'
 
 class AddMovieForm extends Component {
     constructor(props) {
@@ -23,6 +23,7 @@ class AddMovieForm extends Component {
     }
     check = (e) => {
         e.preventDefault()
+        this.title.current.value = titleFormat(this.title.current.value)
         this.props.dispatch(fetchMovie(this.title.current.value))
     }
 

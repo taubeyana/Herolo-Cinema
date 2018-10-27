@@ -1,5 +1,4 @@
 import React, { Component }  from 'react';
-import './Form.css';
 import Input from '../../common/Input/Input';
 import Modal from '../../common/Modal/Modal';
 
@@ -27,7 +26,6 @@ class EditMovieForm extends Component {
         this.props.onFormCancel()
     }
      render() {
-         console.log(this.props)
         return (
             <Modal 
                 modalOpen = { this.props.modalOpen } 

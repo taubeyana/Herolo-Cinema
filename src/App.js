@@ -8,7 +8,7 @@ import Header from './components/Header/Header';
 import MoviesContainer from './components/MoviesContainer/MoviesContainer'
 import configureStore from './store/configureStore';
 
-const store = configureStore()
+export const store = configureStore()
 
 class App extends Component {
   render() {

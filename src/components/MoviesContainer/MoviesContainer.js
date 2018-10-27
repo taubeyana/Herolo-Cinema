@@ -4,9 +4,9 @@ import './MoviesContainer.css';
 import MovieCard from '../MovieCard/MovieCard';
 import Button from '../../common/Button/Button';
 import Modal from '../../common/Modal/Modal';
-import Form from '../../common/Form/Form';
-
-import { fetchMoviesList, editMovie, deleteMovie } from '../../store/actions'
+import AddMovieForm from '../Forms/AddMovieForm';
+import EditMovieForm from '../Forms/EditMovieForm';
+import { fetchMoviesList, editMovie, deleteMovie, addMovie } from '../../store/actions'
 
 class MoviesContainer extends Component {
     constructor(props) {
@@ -31,7 +31,6 @@ class MoviesContainer extends Component {
     }
     componentDidMount() {
         this.props.dispatch(fetchMoviesList()) 
-        
     }
     onEditMovie = (id) =>  {
         let selectedMovie = this.props.moviesList
@@ -42,47 +41,70 @@ class MoviesContainer extends Component {
         this.toggleModal()
     }
     handleClickOnDelete = (id) =>  {
-        this.togglePopup()
         this.setState({ selectedToDelete: id })
+        this.togglePopup()
     }
-
     onFormSubmit = (movie) => {
-        this.props.dispatch(editMovie(movie))
-        this.toggleModal()
+        if (this.state.formType === 'edit') {
+            this.props.dispatch(editMovie(movie))
+        }
+        if (this.state.formType === 'add') {
+            this.props.dispatch(addMovie(movie))
+        }
     }
     confirmDeletion = () => {
         this.props.dispatch(deleteMovie(this.state.selectedToDelete))
         this.togglePopup()
-
     }
     onAddMovie = () => {
         this.toggleModal()
         this.setState({formType: 'add'})
     }
-    
+    renderForm() {
+        switch (this.state.formType) {
+            case "add":
+                return (
+                    <AddMovieForm 
+                        modalOpen = { this.state.modalOpen } 
+                        modalClose = { this.toggleModal }
+                        onFormCancel = { this.toggleModal } 
+                        handleFormSubmit = { this.onFormSubmit } 
+                        movie = { this.state.selectedMovie }>
+                    </AddMovieForm>
+                )
+            case "edit":
+                return (
+                    <EditMovieForm 
+                        modalOpen = { this.state.modalOpen } 
+                        modalClose = { this.toggleModal }
+                        onFormCancel = { this.toggleModal } 
+                        handleFormSubmit = { this.onFormSubmit } 
+                        movie = { this.state.selectedMovie }>
+                    </EditMovieForm> 
+                )    
+            default:
+                break;
+        }
+    }
     render() {
         return (
             <main className = "movies-container">
-               { this.props.moviesList.map(movie => <MovieCard {...movie } onDeleteMovie = { this.handleClickOnDelete } handleClickOnEdit = { this.onEditMovie } />) }
+               { this.props.moviesList
+                    .map(movie => <MovieCard {...movie } 
+                    onDeleteMovie = { this.handleClickOnDelete } 
+                    handleClickOnEdit = { this.onEditMovie } />) }
                <Button 
                     className = "add-btn"
                     label = 'add' 
                     handleClick = { this.onAddMovie }>
                 </Button>
+                { this.state.modalOpen ? this.renderForm() : null }
                 <Modal 
-                // type = 'modal'
-                    modalOpen = { this.state.modalOpen } 
-                    modalClose = { this.toggleModal }>
-                    <Form onFormCancel = { this.toggleModal } handleChange = {this.onFormSubmit} formType = { this.state.formType } movie = { this.state.selectedMovie }/>
-                </Modal>
-                <Modal 
-                    // type='popup'
                     modalOpen = { this.state.popupOpen }
                     modalClose = { this.togglePopup }>
                     <button onClick = { (e) => this.confirmDeletion(e) }> OK </button>    
                     <button onClick = { this.togglePopup }> Cancel </button>    
                 </Modal>
-
             </main>
         )
     }
@@ -90,5 +112,5 @@ class MoviesContainer extends Component {
 const mapStateToProps = state => ({
         moviesList: state.moviesList,
         loading: state.loading
-})
+    })
 export default connect(mapStateToProps)(MoviesContainer);

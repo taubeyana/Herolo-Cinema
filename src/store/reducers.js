@@ -1,4 +1,4 @@
-import {ADD_MOVIE, EDIT_MOVIE, DELETE_MOVIE , GET_MOVIE } from '../store/actions'
+import {ADD_MOVIE, EDIT_MOVIE, DELETE_MOVIE , GET_MOVIE, ERROR_MESSAGE } from '../store/actions'
 
 const initialState = {
     moviesList: [],
@@ -10,7 +10,8 @@ const initialState = {
         Genre: '',
         Director: '',
         imdbID: ''
-    }
+    },
+    errorMessage: ''
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -21,7 +22,8 @@ const rootReducer = (state = initialState, action) => {
                 moviesList: [
                     action.movie,
                     ...state.moviesList 
-                ]
+                ],
+                errorMessage: action.error
             })
         case GET_MOVIE:
             return ({
@@ -36,6 +38,11 @@ const rootReducer = (state = initialState, action) => {
                     else return movie
                 })
             })
+        case ERROR_MESSAGE:
+        return ({
+            ...state, 
+            errorMessage: action.payload
+        })    
         case DELETE_MOVIE:
             return ({
                 ...state,

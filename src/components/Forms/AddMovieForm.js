@@ -1,9 +1,12 @@
 import React, { Component }  from 'react';
+import './Forms.css'
 import { connect } from 'react-redux';
 import { fetchMovie } from '../../store/actions';
+import { titleFormat } from '../../utils/validations'
 import Input from '../../common/Input/Input';
 import Modal from '../../common/Modal/Modal';
-import { titleFormat } from '../../utils/validations'
+import Button from '../../common/Button/Button';
+
 
 class AddMovieForm extends Component {
     constructor(props) {
@@ -34,16 +37,20 @@ class AddMovieForm extends Component {
                 modalClose = { this.props.modalClose }>
                 <form>
                     <h1> Add a Movie </h1>
-                    <Input handleChange= {(e) => this.check(e) } label = "Title" defaultValue = { this.props.movieInfo.Title } inputRef = { this.title } />
-                    <Input label = "Year" defaultValue = { this.props.movieInfo.Year } disabled  inputRef = { this.year }/>
-                    <Input label = "Genre" defaultValue = { this.props.movieInfo.Genre } disabled  inputRef = { this.genre }/>
-                    <Input label = "Runtime" defaultValue = { this.props.movieInfo.Runtime } disabled  inputRef = { this.runtime }/>
-                    <Input label = "Director" defaultValue = { this.props.movieInfo.Director }  disabled  inputRef = { this.director }/>
-                    <Input label = "ID"  defaultValue = { this.props.movieInfo.imdbID } disabled/>
-                    <button onClick = { e => this.onFormSubmit(e) }>save</button>
+                    <div className = "form-input-fields">
+                        <Input handleChange= {(e) => this.check(e) } label = "Title" defaultValue = { this.props.movieInfo.Title } inputRef = { this.title } />
+                        <Input label = "Year" defaultValue = { this.props.movieInfo.Year } disabled  inputRef = { this.year }/>
+                        <Input label = "Genre" defaultValue = { this.props.movieInfo.Genre } disabled  inputRef = { this.genre }/>
+                        <Input label = "Runtime" defaultValue = { this.props.movieInfo.Runtime } disabled  inputRef = { this.runtime }/>
+                        <Input label = "Director" defaultValue = { this.props.movieInfo.Director }  disabled  inputRef = { this.director }/>
+                        <Input label = "ID"  defaultValue = { this.props.movieInfo.imdbID } disabled/>
+                    </div>
                     <span>{this.props.error}</span>
-                    <button onClick = { e => this.check(e) }> Search </button> 
-                    <button onClick = { this.props.onFormCancel }>cancel</button>
+                    <footer className = "form-buttons"> 
+                        <Button onClick = { e => this.onFormSubmit(e) } label = "Save"/> 
+                        <Button onClick = { e => this.check(e) } label = "Search Online"/> 
+                        <Button onClick = { this.props.onFormCancel } label = "Cancel"/> 
+                    </footer>
                 </form>
             </Modal>
         )

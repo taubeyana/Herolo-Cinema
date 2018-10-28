@@ -7,7 +7,7 @@ const Modal = props => {
        props.modalOpen ? 
         (<Fragment>
             <Backdrop closeModal = { props.modalClose } ></Backdrop>
-            <div className = "modal"> 
+            <div className = { props.className + " modal" ||  "modal" }> 
                 {props.children}
             </div>
         </Fragment>) :

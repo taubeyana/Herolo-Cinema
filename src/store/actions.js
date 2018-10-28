@@ -6,7 +6,6 @@ export const EDIT_MOVIE = "EDIT_MOVIE";
 export const DELETE_MOVIE = "DELETE_MOVIE";
 export const ERROR_MESSAGE = "ERROR_MESSAGE";
 
-
 export const addMovie = (payload) => {
     let error = ''
     if ( checkExistingMovie(payload.imdbID) === true ) {

@@ -50,6 +50,7 @@ const rootReducer = (state = initialState, action) => {
                    return movie.imdbID !== action.payload
                 })
             })
+        
         default:
             return state;
     }

@@ -1,10 +1,16 @@
+@import '../../variables';
 .app-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 75px;
-    background: lightgray;
+    height: 120px;
+    background: $lightBackground;
     position: fixed;
     width: 100%;
     z-index: 500;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
+}
+.logo {
+    height: 90px;
+    padding: 45px;
 }

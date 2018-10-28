@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .modal {
     position: fixed;
     width: 350px;
@@ -5,7 +7,20 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background: white;
+    background: $lightBackground;
     border-radius: 10px;
     z-index: 500
+}
+.popup {
+    height: 200px;
+    top: 40%;
+    text-align: center;
+    p {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 20px;
+    }
+    // .popup-buttons {
+
+    // }
 }

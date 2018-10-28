@@ -1,14 +1,23 @@
 .movies-container {
     position: relative;
-    top: 100px;
+    top: 150px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0px 25px;
+    background: inherit;
+    padding: 0px 25px 50px;
 }
-.add-btn {
+.add-btn.btn {
+
     position: fixed;
-    top: 95vh;
-    left: 30px;
+    top: 85vh;
+    left: 15px;
     z-index: 500;
+    background: white;
+    border-radius: 50%;
+    padding: 14px 16px;
+    box-shadow: rgba(0, 0, 0, 0.5) 5px 8px 15px;
+    .fa-plus {
+        font-size: 35px;
+    }
 }

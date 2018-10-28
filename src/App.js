@@ -5,6 +5,7 @@ import './App.css';
 import './utils/fontAwesome';
 
 import Header from './components/Header/Header';
+import MainLayout from './components/MainLayout/MainLayout';
 import MoviesContainer from './components/MoviesContainer/MoviesContainer'
 import configureStore from './store/configureStore';
 
@@ -14,10 +15,7 @@ class App extends Component {
   render() {
     return (
       <Provider store = { store }>
-        <Fragment>
-          <Header title = "Herolo Cinema" />
-          <MoviesContainer/>
-        </Fragment>
+        <MainLayout/>
       </Provider>
     );
   }

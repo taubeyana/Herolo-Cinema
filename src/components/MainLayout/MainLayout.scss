@@ -1,0 +1,29 @@
+@import '../../variables';
+
+.main-layout {
+    background-color: $lightBackground;
+    background-image: url("https://www.transparenttextures.com/patterns/grey-washed-wall.png");
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #343C3E;
+}
+
+input, textarea {
+  border: none;
+  outline: none;
+  font: inherit;
+  resize: none;
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  line-height: normal;
+}

@@ -92,18 +92,21 @@ class MoviesContainer extends Component {
                { this.props.moviesList
                     .map(movie => <MovieCard {...movie } 
                     onDeleteMovie = { this.handleClickOnDelete } 
-                    handleClickOnEdit = { this.onEditMovie } />) }
+                    handleClickOnEdit = { this.onEditMovie } key = { movie.imdbID } />) }
                <Button 
                     className = "add-btn"
-                    label = 'add' 
-                    handleClick = { this.onAddMovie }>
+                    icon = "plus"
+                    onClick = { this.onAddMovie }>
                 </Button>
                 { this.state.modalOpen ? this.renderForm() : null }
-                <Modal 
+                <Modal className = "popup"
                     modalOpen = { this.state.popupOpen }
                     modalClose = { this.togglePopup }>
-                    <button onClick = { (e) => this.confirmDeletion(e) }> OK </button>    
-                    <button onClick = { this.togglePopup }> Cancel </button>    
+                    <p> Are you sure you want to delete this movie?</p>
+                    <footer className = "popup-buttons">
+                        <Button onClick = { (e) => this.confirmDeletion(e) } label = "OK"/>   
+                        <Button onClick = { this.togglePopup } label = "Cancel"/>  
+                    </footer>
                 </Modal>
             </main>
         )

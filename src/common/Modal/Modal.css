@@ -5,15 +5,18 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: #DAD9DB;
+  background: #f9f9f9;
   border-radius: 10px;
   z-index: 500; }
 
 .popup {
-  height: 200px;
+  height: 160px;
   top: 40%;
   text-align: center; }
   .popup p {
     font-size: 18px;
     font-weight: bold;
     padding: 20px; }
+
+.form-modal {
+  height: 575px; }

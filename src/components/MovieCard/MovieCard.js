@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import './MovieCard.css';
 import Button from '../../common/Button/Button'
+import defaultBackground from '../../img/defaultBackground.jpg';
 
 class MovieCard extends Component {
     constructor(props) {
@@ -8,7 +9,11 @@ class MovieCard extends Component {
     }
     render() {
         let style = {
-            backgroundImage: `url(${this.props.Poster})`
+        }
+        if (this.props.Poster) {
+            style.backgroundImage= `url(${this.props.Poster})`
+        } else {
+            style.backgroundImage= `url(${defaultBackground})`
         }
         return (
             <div className = "movie-card" style = {style} >
@@ -44,28 +49,3 @@ class MovieCard extends Component {
 } 
     
 export default MovieCard;
-// class MovieCard extends Component {
-//     constructor(props) {
-//         super(props)
-//     }
-// <img src = { this.props.Poster } alt = '{this.props.title}'/>
-//     render() {
-//         return (
-//             <div className = "movie-card">
-//                     <img className = "front" src = { this.props.Poster } alt = '{this.props.title}'/>
-//                     <div className='back'>
-//                         <p> Title: { this.props.Title } </p>
-//                         <p> Year: { this.props.Year } </p>
-//                         <p> Genre: { this.props.Genre } </p>
-//                         <p> Director: { this.props.Director } </p>
-//                         <p> Runtime: { this.props.Runtime } </p>
-//                         <Button onClick = { () => this.props.handleClickOnEdit(this.props.imdbID)} > EDIT </Button>
-//                         <Button onClick = { () => this.props.onDeleteMovie(this.props.imdbID)} > DELETE </Button>
-//                     </div>
-//                 </div>
-        
-//             )
-//     }
-// } 
-    
-// export default MovieCard;

@@ -19,3 +19,7 @@ form {
 
 .form-input-fields {
   padding: 10px 0px; }
+
+.error-message {
+  color: red;
+  font-size: 14px; }

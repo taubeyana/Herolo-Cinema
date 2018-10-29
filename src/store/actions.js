@@ -10,7 +10,7 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 export const addMovie = (payload) => {
     let error = ''
-    if ( checkExistingMovie(payload.imdbID) === true ) {
+    if ( checkExistingMovie(payload.Title) === true ) {
        return dispatch => dispatch(errorMessage(`Movie ${payload.Title} already exist.`)) 
     } else {
         return {
@@ -80,7 +80,7 @@ export const fetchMoviesList = () => {
         "Crazy, Stupid, Love.",
         "Hard Candy"
     ]
-    return (dispatch, getState) => {
+    return (dispatch) => {
         moviesInitialList.forEach(title => {
             axios.get(`https://www.omdbapi.com/?t=${title}&apikey=33a73e97`)
             .then(data => {

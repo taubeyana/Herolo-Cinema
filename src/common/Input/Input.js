@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import './Input.css'
 class Input extends Component {
     render() {
         return (
@@ -11,7 +10,6 @@ class Input extends Component {
                 spellCheck="false"
                 type = "text" 
                 defaultValue = { this.props.defaultValue }  
-                // onChange = { (e) => this.props.handleChange(e) } 
                 disabled = { this.props.disabled } 
                 ref = { this.props.inputRef }
                 name = { this.props.name }>

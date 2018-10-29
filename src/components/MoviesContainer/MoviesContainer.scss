@@ -1,4 +1,5 @@
 .movies-container {
+    background-color: gray;
     position: relative;
     top: 150px;
     display: flex;
@@ -8,8 +9,8 @@
     padding: 0px 25px 50px;
 }
 .add-btn.btn {
-
     position: fixed;
+    color: #343C3E;
     top: 85vh;
     left: 15px;
     z-index: 500;
@@ -20,4 +21,33 @@
     .fa-plus {
         font-size: 35px;
     }
+    &:hover {
+        background: #F0F0F0;
+    }
 }
+
+.close-btn.btn {
+    color: #343C3E;
+    padding: 0;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    font-size: 20px;
+    border-radius: 50%;
+    .fa-times {
+        padding: 7px 10px;
+        border-radius: 50%;
+    }
+    &:hover {
+        background: #F0F0F0;
+    }
+}
+
+@import '../../variables';
+
+.main-layout {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #343C3E;
+}
+

@@ -6,7 +6,7 @@ import Button from '../../common/Button/Button';
 import Modal from '../../common/Modal/Modal';
 import AddMovieForm from '../Forms/AddMovieForm';
 import EditMovieForm from '../Forms/EditMovieForm';
-import { fetchMoviesList, editMovie, deleteMovie, addMovie } from '../../store/actions'
+import { fetchMoviesList, editMovie, deleteMovie, addMovie, clearErrors } from '../../store/actions'
 
 class MoviesContainer extends Component {
     constructor(props) {
@@ -16,7 +16,7 @@ class MoviesContainer extends Component {
             formType: null,
             selectedMovie: null,
             popupOpen: false,
-            selectedToDelete: null
+            selectedToDelete: null,
         }
     }
     toggleModal = () => {
@@ -37,9 +37,16 @@ class MoviesContainer extends Component {
                             .filter(movie => movie.imdbID === id)
                             .pop()
         this.setState({formType: 'edit',
-                       selectedMovie: selectedMovie })
+                       selectedMovie: selectedMovie,
+                       clearForm: true })
         this.toggleModal()
     }
+    clearForm = () => {
+        this.props.dispatch(clearErrors())
+        this.setState({ clearForm: false })
+        this.toggleModal()
+    }
+
     handleClickOnDelete = (id) =>  {
         this.setState({ selectedToDelete: id })
         this.togglePopup()
@@ -66,8 +73,8 @@ class MoviesContainer extends Component {
                 return (
                     <AddMovieForm 
                         modalOpen = { this.state.modalOpen } 
-                        modalClose = { this.toggleModal }
-                        onFormCancel = { this.toggleModal } 
+                        modalClose = { this.clearForm }
+                        onFormCancel = { this.clearForm } 
                         handleFormSubmit = { this.onFormSubmit } 
                         movie = { this.state.selectedMovie }>
                     </AddMovieForm>
@@ -76,8 +83,8 @@ class MoviesContainer extends Component {
                 return (
                     <EditMovieForm 
                         modalOpen = { this.state.modalOpen } 
-                        modalClose = { this.toggleModal }
-                        onFormCancel = { this.toggleModal } 
+                        modalClose = { this.clearForm }
+                        onFormCancel = { this.clearForm } 
                         handleFormSubmit = { this.onFormSubmit } 
                         movie = { this.state.selectedMovie }>
                     </EditMovieForm> 

@@ -1,5 +1,9 @@
 .btn {
-  background: gray;
+  background: #625757;
   padding: 10px 15px;
   border-radius: 10px;
-  margin: 5px; }
+  margin: 5px;
+  color: white;
+  font-weight: bold; }
+  .btn:hover {
+    background: #473f3f; }

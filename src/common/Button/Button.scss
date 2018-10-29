@@ -1,6 +1,13 @@
+@import '../../variables';
+
 .btn {
-    background: gray;
+    background: $buttonsBackground;
     padding: 10px 15px;
     border-radius: 10px;
     margin: 5px;
+    color: white;
+    font-weight: bold;
+    &:hover {
+        background: darken($buttonsBackground, 10%)
+    }
 }

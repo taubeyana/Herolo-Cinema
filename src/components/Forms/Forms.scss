@@ -12,17 +12,20 @@ form {
         padding: 8px;
         border-radius: 5px;
     }
-
     .form-buttons {
         margin-top: 5px;
     }
 }
 .input-wrapper {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
 }
 
 .form-input-fields {
     padding: 10px 0px;
 }
 
+.error-message {
+    color: red;
+    font-size: 14px;
+}

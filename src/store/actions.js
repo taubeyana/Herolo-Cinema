@@ -5,6 +5,8 @@ export const GET_MOVIE = "GET_MOVIE";
 export const EDIT_MOVIE = "EDIT_MOVIE";
 export const DELETE_MOVIE = "DELETE_MOVIE";
 export const ERROR_MESSAGE = "ERROR_MESSAGE";
+export const SET_ERRORS = "SET_ERRORS";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 export const addMovie = (payload) => {
     let error = ''
@@ -46,6 +48,15 @@ export const errorMessage = (payload) => ({
     payload
 })
 
+export const setErrors = payload => ({
+    type: SET_ERRORS,
+    payload
+})
+
+export const clearErrors = () => ({
+    type: CLEAR_ERRORS,
+    
+})
 export const fetchMoviesList = () => {
     let moviesInitialList = [
         "se7en",
@@ -71,7 +82,7 @@ export const fetchMoviesList = () => {
     ]
     return (dispatch, getState) => {
         moviesInitialList.forEach(title => {
-            axios.get(`http://www.omdbapi.com/?t=${title}&apikey=33a73e97`)
+            axios.get(`https://www.omdbapi.com/?t=${title}&apikey=33a73e97`)
             .then(data => {
                 dispatch(addMovie(data.data))
             })
@@ -82,7 +93,7 @@ export const fetchMoviesList = () => {
 
 export const fetchMovie = (title) => {
     return dispatch => {
-            axios.get(`http://www.omdbapi.com/?t=${title}&apikey=33a73e97`)
+            axios.get(`https://www.omdbapi.com/?t=${title}&apikey=33a73e97`)
             .then(data => {
                 if (data.data.Response === 'True') {
                     dispatch(getMovie(data.data))

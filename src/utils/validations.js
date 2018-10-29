@@ -1,8 +1,8 @@
 import { store } from '../App';
 import validator from 'validator';
 
-export const checkExistingMovie = (id) => {
-    if (store.getState().moviesList.find(movie => movie.imdbID === id)) {
+export const checkExistingMovie = (title) => {
+    if (store.getState().moviesList.find(movie => movie.Title === title)) {
         return true
     }
 }
@@ -14,7 +14,10 @@ export const formValidator = (values) => {
         errors.Title = 'Required'
     } else if (!validator.isAlpha(validator.blacklist(values.Title, (', .')))) {
         errors.Title = 'Title must contain only letters'
-    } if (validator.isEmpty(values.Year)) {
+    } else if  ( checkExistingMovie(values.Title) === true ) {
+        errors.Title = `Movie ${values.Title} already exist.`
+    }
+    if (validator.isEmpty(values.Year)) {
         errors.Year = 'Required'
     } else if (!yearChecker.test(values.Year)) {
         errors.Year = 'This is not a valid year atfer 1900'

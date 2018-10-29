@@ -46,7 +46,7 @@ class AddMovieForm extends Component {
             let errors = formValidator(values)
             this.props.dispatch(setErrors(errors))
             
-            if (Object.keys(errors).length == 0){
+            if (Object.keys(errors).length === 0){
                 values.Title = titleFormat(this.title.current.value)
                 values.imdbID = uniqid()
                 this.props.handleFormSubmit(values)
@@ -75,7 +75,6 @@ class AddMovieForm extends Component {
                         <span className = "error-message"> { this.props.errors.Director } </span>
                         <Input label = "ID"  defaultValue = { this.props.movieInfo.imdbID } disabled/>
                     </div>
-                    <span>{this.props.error}</span>
                     <footer className = "form-buttons"> 
                         <Button onClick = { e => this.validateForm(e, true) } label = "Save"/> 
                         <Button onClick = { e => this.check(e) } label = "Web Search"/> 
@@ -89,7 +88,6 @@ class AddMovieForm extends Component {
 }
 const mapStateToProps = state => ({
     movieInfo: state.movieInfo,
-    error: state.errorMessage,
     errors: state.errors
 })
 export default connect(mapStateToProps)(AddMovieForm);

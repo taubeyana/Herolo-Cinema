@@ -43,7 +43,7 @@ class EditMovieForm extends Component {
             }
             let errors = formValidator(values)
             this.props.dispatch(setErrors(errors))
-            if (Object.keys(errors).length == 0) this.onFormSubmit(e)
+            if (Object.keys(errors).length === 0) this.onFormSubmit(e)
         }
     }
 

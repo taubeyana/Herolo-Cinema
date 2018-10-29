@@ -4,19 +4,15 @@ import Button from '../../common/Button/Button'
 import defaultBackground from '../../img/defaultBackground.jpg';
 
 class MovieCard extends Component {
-    constructor(props) {
-        super(props)
-    }
     render() {
-        let style = {
-        }
+        let style = {}
         if (this.props.Poster) {
-            style.backgroundImage= `url(${this.props.Poster})`
+            style.backgroundImage= `url(${ this.props.Poster })`
         } else {
-            style.backgroundImage= `url(${defaultBackground})`
+            style.backgroundImage= `url(${ defaultBackground })`
         }
         return (
-            <div className = "movie-card" style = {style} >
+            <div className = "movie-card" style = { style } >
                 <div className='movie-details'>
                     <div className = "details-wrapper"> 
                         <label> Title: </label>

@@ -37,13 +37,11 @@ class MoviesContainer extends Component {
                             .filter(movie => movie.imdbID === id)
                             .pop()
         this.setState({formType: 'edit',
-                       selectedMovie: selectedMovie,
-                       clearForm: true })
+                       selectedMovie: selectedMovie})
         this.toggleModal()
     }
     clearForm = () => {
         this.props.dispatch(clearErrors())
-        this.setState({ clearForm: false })
         this.toggleModal()
     }
 
@@ -65,7 +63,7 @@ class MoviesContainer extends Component {
     }
     onAddMovie = () => {
         this.toggleModal()
-        this.setState({formType: 'add'})
+        this.setState({ formType: 'add' })
     }
     renderForm() {
         switch (this.state.formType) {

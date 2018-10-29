@@ -10,8 +10,8 @@ const Modal = props => {
             <div className = { props.className ? props.className + " modal" : "modal" }> 
                 {props.children}
             </div>
-        </Fragment>) :
-        null
+        </Fragment>) 
+        : null
     )
 }
 

@@ -1,9 +1,12 @@
 .btn {
-  background: #625757;
+  background: #5F9EA0;
   padding: 10px 15px;
   border-radius: 10px;
   margin: 5px;
   color: white;
   font-weight: bold; }
   .btn:hover {
-    background: #473f3f; }
+    background: #4c7e80; }
+
+.save-btn.btn {
+  padding: 10px 95px; }

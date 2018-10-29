@@ -5,6 +5,8 @@ class Input extends Component {
         <div className = 'input-wrapper'>
             <label> { this.props.label } </label>
             <input 
+                onChange = { this.props.handleChange }
+                onBlur = { this.props.onBlur }
                 autoCorrect="off" 
                 autoCapitalize="off" 
                 spellCheck="false"

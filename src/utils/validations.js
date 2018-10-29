@@ -20,7 +20,7 @@ export const formValidator = (values) => {
     if (validator.isEmpty(values.Year)) {
         errors.Year = 'Required'
     } else if (!yearChecker.test(values.Year)) {
-        errors.Year = 'This is not a valid year atfer 1900'
+        errors.Year = 'This year should after 1900'
     } if (validator.isEmpty(values.Genre)) {
         errors.Genre = 'Required'
     } else if (!validator.isAlpha(validator.blacklist(values.Genre, (', .')))) {

@@ -1,7 +1,7 @@
 .movie-card {
   width: 250px;
   height: 400px;
-  margin: 15px;
+  margin: 20px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.5) 5px 8px 15px;
   position: relative;
@@ -11,7 +11,7 @@
   .movie-card:hover .movie-details {
     display: flex; }
   .movie-card .movie-details {
-    background: #f9f9f9;
+    background: #eae7ed;
     border-radius: 10px;
     height: 100%;
     color: white;
@@ -25,7 +25,7 @@
     .movie-card .movie-details .details-wrapper {
       display: flex;
       flex-direction: column;
-      background: #9d8f8f;
+      background: #876C91;
       box-shadow: rgba(255, 255, 255, 0.5) 0px 6px 15px;
       border-radius: inherit;
       padding: 0px 10px; }

@@ -2,7 +2,6 @@ import React, { Component }  from 'react';
 import uniqid from 'uniqid';
 import './Forms.css'
 import { connect } from 'react-redux';
-import { fetchMovie } from '../../store/actions';
 import { titleFormat } from '../../utils/validations'
 import Input from '../../common/Input/Input';
 import Modal from '../../common/Modal/Modal';
@@ -26,16 +25,13 @@ class AddMovieForm extends Component {
             this.props.onFormCancel()
         }
     }
-    check = (e) => {
+    titleFormat = (e) => {
         e.preventDefault()
         this.title.current.value = titleFormat(this.title.current.value)
-        this.props.dispatch(fetchMovie(this.title.current.value))
     }
 
     validateForm = (e,bool) => {
         e.preventDefault()
-        if (!bool) this.onFormSubmit(e)
-        else {
             const values = {
                 Title: this.title.current.value,
                 Year: this.year.current.value,
@@ -52,7 +48,6 @@ class AddMovieForm extends Component {
                 this.props.handleFormSubmit(values)
                 this.props.onFormCancel()
             } 
-        }
     }
 
     render() {
@@ -63,22 +58,20 @@ class AddMovieForm extends Component {
                 <form>
                     <h1> Add a Movie </h1>
                     <div className = "form-input-fields">
-                        <Input handleChange= {(e) => this.check(e) } label = "Title" defaultValue = { this.props.movieInfo.Title } inputRef = { this.title } />
+                        <Input onBlur = { e => this.titleFormat(e) } label = "Title" inputRef = { this.title } />
                         <span className = "error-message"> { this.props.errors.Title } </span>
-                        <Input label = "Year" defaultValue = { this.props.movieInfo.Year } inputRef = { this.year }/>
+                        <Input label = "Year"  inputRef = { this.year }/>
                         <span className = "error-message"> { this.props.errors.Year } </span>
-                        <Input label = "Genre" defaultValue = { this.props.movieInfo.Genre }  inputRef = { this.genre }/>
+                        <Input label = "Genre"   inputRef = { this.genre }/>
                         <span className = "error-message"> { this.props.errors.Genre } </span>
-                        <Input label = "Runtime" defaultValue = { this.props.movieInfo.Runtime }  inputRef = { this.runtime }/>
+                        <Input label = "Runtime"  inputRef = { this.runtime }/>
                         <span className = "error-message"> { this.props.errors.Runtime } </span>
-                        <Input label = "Director" defaultValue = { this.props.movieInfo.Director } inputRef = { this.director }/>
+                        <Input label = "Director"  inputRef = { this.director }/>
                         <span className = "error-message"> { this.props.errors.Director } </span>
-                        <Input label = "ID"  defaultValue = { this.props.movieInfo.imdbID } disabled/>
+                        <Input label = "ID"  disabled/>
                     </div>
                     <footer className = "form-buttons"> 
-                        <Button onClick = { e => this.validateForm(e, true) } label = "Save"/> 
-                        <Button onClick = { e => this.check(e) } label = "Web Search"/> 
-                        <Button onClick = { e => this.validateForm(e, false) } label = "Add"/> 
+                        <Button className = "save-btn" onClick = { e => this.validateForm(e) } label = "Save"/> 
                         <Button className = "close-btn" onClick = { this.props.onFormCancel } icon = "times"/> 
                     </footer>
                 </form>

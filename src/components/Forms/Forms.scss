@@ -1,3 +1,5 @@
+@import '../../variables';
+
 form {
     display: flex;
     flex-direction: column;
@@ -9,8 +11,9 @@ form {
         padding: 3px 0px;
     }
     input {
-        padding: 8px;
+        padding: 5px;
         border-radius: 5px;
+        // border: 0.6px solid $buttonsBackground;
     }
     .form-buttons {
         margin-top: 5px;

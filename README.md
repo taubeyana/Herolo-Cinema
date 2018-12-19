@@ -1,15 +1,15 @@
-# Herolo Cinema
+# Movies-Library
 
 ## Live Demo
 
-[Herolo-Cinema](https://yana-herolo-cinema.herokuapp.com) 
-The demo uploaded to Heroku cloud platform.
+[Movies-Library](https://taubeyana.github.io/Movies-Library/) 
+The demo uploaded to GitHub Pages.
 
 
 
 ### Installing
 
-1. Download or clone Herolo-Cinema repository
+1. Download or clone Movies-Library repository
 2. Install prerequisites using #npm install command
 3. Start React app - run #npm start
 

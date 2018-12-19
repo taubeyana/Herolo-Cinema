@@ -1,8 +1,8 @@
-# Herolo Cinema
+# Movies-Library
 
 ## Live Demo
 
-[Herolo-Cinema](https://yana-herolo-cinema.herokuapp.com) 
+[Movies-Library](https://yana-herolo-cinema.herokuapp.com) 
 The demo uploaded to Heroku cloud platform.
 
 

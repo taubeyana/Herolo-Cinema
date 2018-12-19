@@ -1,11 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Indie+Flower");
 .app-header {
   top: 0;
+  display: flex;
+  align-items: center;
   height: 120px;
   background: #eae7ed;
   position: fixed;
   width: 100%;
   z-index: 500;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px; }
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
+  font-family: 'Indie Flower', cursive;
+  text-shadow: 2px 2px 6px grey;
+  font-size: 25px;
+  color: #543e5c; }
 
 .logo {
   height: 100px;

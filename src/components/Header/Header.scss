@@ -1,15 +1,19 @@
 @import '../../variables';
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 .app-header {
     top: 0;
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
+    display: flex;
+    align-items: center;
     height: 120px;
     background: $lightBackground;
     position: fixed;
     width: 100%;
     z-index: 500;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
+    font-family: 'Indie Flower', cursive;
+    text-shadow: 2px 2px 6px grey;
+    font-size: 25px;
+    color: $darkBackground;
 }
 .logo {
     height: 100px;

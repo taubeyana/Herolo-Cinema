@@ -2,7 +2,7 @@
   "name": "herolo-cinema",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://taubeyana.github.io/Herolo-Cinema",
+  "homepage": "http://taubeyana.github.io/Movies-Library",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.6",
     "@fortawesome/free-solid-svg-icons": "^5.4.1",

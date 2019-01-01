@@ -1,15 +1,15 @@
 {
   "main.css": "/Movies-Library/static/css/main.bfd6e830.chunk.css",
-  "main.js": "/Movies-Library/static/js/main.83313d6b.chunk.js",
-  "main.js.map": "/Movies-Library/static/js/main.83313d6b.chunk.js.map",
+  "main.js": "/Movies-Library/static/js/main.6d480337.chunk.js",
+  "main.js.map": "/Movies-Library/static/js/main.6d480337.chunk.js.map",
   "static/js/1.36537ae3.chunk.js": "/Movies-Library/static/js/1.36537ae3.chunk.js",
   "static/js/1.36537ae3.chunk.js.map": "/Movies-Library/static/js/1.36537ae3.chunk.js.map",
   "runtime~main.js": "/Movies-Library/static/js/runtime~main.66f27904.js",
   "runtime~main.js.map": "/Movies-Library/static/js/runtime~main.66f27904.js.map",
   "static/css/main.bfd6e830.chunk.css.map": "/Movies-Library/static/css/main.bfd6e830.chunk.css.map",
   "static/media/defaultBackground.jpg": "/Movies-Library/static/media/defaultBackground.a20a164c.jpg",
-  "static/media/cinema.png": "/Movies-Library/static/media/cinema.1e00f685.png",
+  "static/media/cinema-herolo-temp.png": "/Movies-Library/static/media/cinema-herolo-temp.596e4c3b.png",
   "index.html": "/Movies-Library/index.html",
-  "precache-manifest.2de0891927e8784c69e939dfff218ca4.js": "/Movies-Library/precache-manifest.2de0891927e8784c69e939dfff218ca4.js",
+  "precache-manifest.40ca72d2d3c8b03f90da6ecdf8221961.js": "/Movies-Library/precache-manifest.40ca72d2d3c8b03f90da6ecdf8221961.js",
   "service-worker.js": "/Movies-Library/service-worker.js"
 }

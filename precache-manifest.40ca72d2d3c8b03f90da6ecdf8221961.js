@@ -4,27 +4,27 @@ self.__precacheManifest = [
     "url": "/Movies-Library/static/media/defaultBackground.a20a164c.jpg"
   },
   {
-    "revision": "1e00f6852a6213dbe79a1fa8447159b5",
-    "url": "/Movies-Library/static/media/cinema.1e00f685.png"
+    "revision": "596e4c3b86f9b0ee3e6c925068129b54",
+    "url": "/Movies-Library/static/media/cinema-herolo-temp.596e4c3b.png"
   },
   {
     "revision": "66f27904f678637fdc3c",
     "url": "/Movies-Library/static/js/runtime~main.66f27904.js"
   },
   {
-    "revision": "83313d6bed97e1a204da",
-    "url": "/Movies-Library/static/js/main.83313d6b.chunk.js"
+    "revision": "6d480337c27ae9bac9e4",
+    "url": "/Movies-Library/static/js/main.6d480337.chunk.js"
   },
   {
     "revision": "36537ae3e19f5bf8851b",
     "url": "/Movies-Library/static/js/1.36537ae3.chunk.js"
   },
   {
-    "revision": "83313d6bed97e1a204da",
+    "revision": "6d480337c27ae9bac9e4",
     "url": "/Movies-Library/static/css/main.bfd6e830.chunk.css"
   },
   {
-    "revision": "afca9dabbdb5d58ceccddc4d7bfc969c",
+    "revision": "378e854c70e847ccaf7b56bdd895875b",
     "url": "/Movies-Library/index.html"
   }
 ];
